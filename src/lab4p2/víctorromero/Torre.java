@@ -1,20 +1,13 @@
 package lab4p2.víctorromero;
 
-public abstract class Pieza {
+public class Torre extends Pieza {
 
-    protected String Nombre;
-    protected int x;
-    protected int y;
-    protected boolean verif;
-
-    public Pieza() {
+    public Torre() {
+        super();
     }
 
-    public Pieza(String Nombre, int x, int y, boolean verif) {
-        this.Nombre = Nombre;
-        this.x = x;
-        this.y = y;
-        this.verif = verif;
+    public Torre(String Nombre, int x, int y, boolean verif) {
+        super(Nombre, x, y, verif);
     }
 
     public String getNombre() {
@@ -51,8 +44,13 @@ public abstract class Pieza {
 
     @Override
     public String toString() {
-        return "Pieza{" + "Nombre=" + Nombre + ", x=" + x + ", y=" + y + ", verif=" + verif + '}';
+        return "Torre{" + '}';
     }
 
-    public abstract Pieza[][] movimiento(Pieza[][] tablero, int x, int y, int nX, int nY);
+
+
+    @Override
+    public Pieza[][] movimiento(Pieza[][] tablero, int x, int y, int nX, int nY) {
+return tablero;    }
+
 }

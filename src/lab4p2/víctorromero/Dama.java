@@ -42,5 +42,9 @@ public class Dama extends Pieza{
     public void setVerif(boolean verif) {
         this.verif = verif;
     }
+
+    @Override
+    public Pieza[][] movimiento(Pieza[][] tablero, int x, int y, int nX, int nY) {
+return tablero;    }
     
 }
