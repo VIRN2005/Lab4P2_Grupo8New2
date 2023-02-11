@@ -117,9 +117,9 @@ public class Lab4P2VíctorRomero {
         return move;
     }
 
-    public static boolean isCheckmate(int X, int Y, int[][] board) {
+    public static boolean JaqueMate(int X, int Y, int[][] board) {
         // Verificar si el rey está en jaque
-        if (Jaque(board, X, Y)) {
+        if (!Jaque(board, X, Y)) {
             return false;
         }
 
