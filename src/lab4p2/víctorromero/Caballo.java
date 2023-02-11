@@ -47,9 +47,24 @@ public class Caballo extends Pieza {
         return "Caballo{" + '}';
     }
 
-    @Override
     public boolean movimiento(Pieza[][] tablero, int x, int y, int nX, int nY, boolean white) {
+        boolean move = true;
 
+        int newX = Math.abs(nX - x);
+        int newY = Math.abs(nY - y);
+
+        if ((newX == 2 && newY == 1) || (newX == 1 && newY == 2)) {
+            move = true;
+        } else {
+            move = false;
+        }
+
+        return move;
+    }
+
+    @Override
+    public boolean movimiento(Pieza[][] tablero, int x, int y, int nX, int nY) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

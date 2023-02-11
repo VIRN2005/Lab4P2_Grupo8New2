@@ -47,10 +47,20 @@ public class Torre extends Pieza {
         return "Torre{" + '}';
     }
 
-
-
     @Override
-    public Pieza[][] movimiento(Pieza[][] tablero, int x, int y, int nX, int nY) {
-return tablero;    }
+    public boolean movimiento(Pieza[][] tablero, int x, int y, int nX, int nY) {
+        boolean move = true;
+
+        if (((Pieza) tablero[nX][nY]).isVerif() == move) {
+            if (x == nX || y == nY) {
+                move = true;
+            } else {
+                move = false;
+            }
+        } else {
+            move = false;
+        }
+        return move;
+    }
 
 }

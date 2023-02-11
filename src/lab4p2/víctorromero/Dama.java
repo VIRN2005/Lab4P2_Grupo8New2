@@ -1,7 +1,6 @@
-
 package lab4p2.víctorromero;
 
-public class Dama extends Pieza{
+public class Dama extends Pieza {
 
     public Dama() {
         super();
@@ -44,7 +43,16 @@ public class Dama extends Pieza{
     }
 
     @Override
-    public Pieza[][] movimiento(Pieza[][] tablero, int x, int y, int nX, int nY) {
-return tablero;    }
-    
+    public boolean movimiento(Pieza[][] tablero, int x, int y, int nX, int nY) {
+        boolean move = true;
+
+        if (x == nX || y == nY || Math.abs(x - nX) == Math.abs(y - nY)) {
+            move = true;
+        } else {
+            move = false;
+        }
+
+        return move;
+    }
+
 }
