@@ -48,22 +48,24 @@ public class Peon extends Pieza {
     }
 
     @Override
-    public Pieza[][] movimiento(Pieza[][] tablero, int x, int y, int nX, int nY) {
+    public boolean movimiento(Pieza[][] tablero, int x, int y, int nX, int nY) {
+        boolean move = true;
+
         if (tablero[x][y].isVerif()) {
             if (x == nX && (y == nY - 1 || y == nY - 2)) {
                 if (x == 6 && y == nY - 2) {
                     tablero[x][nY] = tablero[x][y];
                     tablero[x][y] = null;
                     tablero[x][nY].setY(nY);
-                    return tablero;
+                    return move;
                 } else if (y == nY - 1) {
                     tablero[x][nY] = tablero[x][y];
                     tablero[x][y] = null;
                     tablero[x][nY].setY(nY);
-                    return tablero;
+                    return move;
                 } else {
                     System.out.println("Movimiento Invalido");
-                    return tablero;
+                    return move = false;
                 }
             } else if ((x == nX - 1 || x == nX + 1) && (y == nY - 1)) {
                 if (tablero[nX][nY] instanceof Pieza) {
@@ -71,18 +73,18 @@ public class Peon extends Pieza {
                         tablero[x][nY] = tablero[x][y];
                         tablero[x][y] = null;
                         tablero[x][nY].setY(nY);
-                        return tablero;
+                        return move;
                     } else {
                         System.out.println("Movimiento Invalido");
-                        return tablero;
+                        return move = false;
                     }
                 }
             } else {
                 System.out.println("Movimiento Invalido");
-                return tablero;
+                return move = false;
             }
         }
-    
+        return move;
     }
 
 }

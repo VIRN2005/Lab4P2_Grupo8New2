@@ -48,7 +48,8 @@ public class Caballo extends Pieza {
     }
 
     @Override
-    public Pieza[][] movimiento(Pieza[][] tablero, int x, int y, int nX, int nY) {
-return tablero;    }
+    public boolean movimiento(Pieza[][] tablero, int x, int y, int nX, int nY, boolean white) {
+
+    }
 
 }

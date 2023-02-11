@@ -1,6 +1,6 @@
 package lab4p2.víctorromero;
 
-public class Rey extends Pieza {
+public abstract class Rey extends Pieza {
 
     public Rey() {
         super();
@@ -47,10 +47,17 @@ public class Rey extends Pieza {
         return "Rey{" + '}';
     }
 
-    @Override
-    public Pieza[][] movimiento(Pieza[][] tablero, int x, int y, int nX, int nY) {
-return tablero;    }
-    
-    
+    public boolean movimiento(Pieza[][] tablero, int x, int y, int nX, int nY, boolean white) {
+        boolean move = true;
 
+        if (((Pieza) tablero[nX][nY]).isVerif() == white) {
+            if (nY <= 1 && nX <= 1) {
+            } else {
+                move = false;
+            }
+        } else {
+            move = false;
+        }
+        return move;
+    }
 }

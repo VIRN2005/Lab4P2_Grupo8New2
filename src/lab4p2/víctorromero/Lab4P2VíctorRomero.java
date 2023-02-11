@@ -22,7 +22,7 @@ public class Lab4P2VíctorRomero {
             int nX = read.nextInt();
             int nY = read.nextInt();
             
-            numero=((Pieza)numero[x][y]).movimiento(numero, x, y, nX, nY);
+           
         }
     }
 

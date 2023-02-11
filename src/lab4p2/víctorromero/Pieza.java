@@ -54,5 +54,5 @@ public abstract class Pieza {
         return "Pieza{" + "Nombre=" + Nombre + ", x=" + x + ", y=" + y + ", verif=" + verif + '}';
     }
 
-    public abstract Pieza[][] movimiento(Pieza[][] tablero, int x, int y, int nX, int nY);
+    public abstract boolean movimiento(Pieza[][] tablero, int x, int y, int nX, int nY);
 }

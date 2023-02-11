@@ -47,8 +47,22 @@ public class Alfil extends Pieza {
         return "Alfil{" + '}';
     }
 
-    @Override
-    public Pieza[][] movimiento(Pieza[][] tablero, int x, int y, int nX, int nY) {
-return tablero;    }
+    public boolean movimiento(Pieza[][] tablero, int x, int y, int nX, int nY, boolean white) {
+        boolean move = true;
 
+        if (((Pieza) tablero[nX][nY]).isVerif() == white) {
+            if (nX == nY) {
+                white = true;
+            } else {
+                white = false;
+            }
+        } else {
+            white = false;
+        }
+        return white;
+    }
+    
+    public boolean movimiento(Pieza[][] tablero, int x, int y, int nX, int nY) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
