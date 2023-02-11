@@ -1,6 +1,6 @@
 package lab4p2.víctorromero;
 
-public abstract class Rey extends Pieza {
+public class Rey extends Pieza {
 
     public Rey() {
         super();
@@ -59,5 +59,10 @@ public abstract class Rey extends Pieza {
             move = false;
         }
         return move;
+    }
+
+    @Override
+    public boolean movimiento(Pieza[][] tablero, int x, int y, int nX, int nY) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

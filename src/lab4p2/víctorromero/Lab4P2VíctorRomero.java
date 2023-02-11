@@ -21,8 +21,7 @@ public class Lab4P2VíctorRomero {
             int y = read.nextInt();
             int nX = read.nextInt();
             int nY = read.nextInt();
-            
-           
+
         }
     }
 
@@ -86,5 +85,31 @@ public class Lab4P2VíctorRomero {
             System.out.println(" ");
 
         }
+    }
+
+    public static boolean Jaque(int[][] tablero, int kingX, int kingY) {
+        boolean move = true;
+
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                if (i == 0 && j == 0) {
+                    move = false;
+                    return move;
+                } else {
+                    int x = kingX + i;
+                    int y = kingY + j;
+                    if (x >= 0 && x < 8 && y >= 0 && y < 8) {
+                        int pieza = tablero[x][y];
+                        if (pieza == Peon || pieza == Caballo || pieza == Alfil || pieza == Torre || piece == Dama || pieza == Rey) {
+                            move = true;
+                            return move;
+
+                        }
+                    }
+                }
+            }
+
+        }
+        return move;
     }
 }
