@@ -15,14 +15,19 @@ public class Lab4P2VíctorRomero {
         int[][] numeros = new int[8][8];
         Pieza[][] numero = llenarMatriz(8, 8);
 
-        imprimir(numero);
-        while (true) {
-            int x = read.nextInt();
-            int y = read.nextInt();
-            int nX = read.nextInt();
-            int nY = read.nextInt();
+        String resp = "S";
+        char respueta = resp.charAt(0);
+        do {
+            String moves = "";
+            imprimir(numero);
 
-        }
+            System.out.println("\n Ingrese los moves: ");
+            moves = read.nextLine();
+
+            String[] splitscositalarga = moves.split("|");
+            String[] splitscositacorta = moves.split("-");
+
+        } while (respueta == 'S');
     }
 
     public static Pieza[][] llenarMatriz(int fila, int columna) {
@@ -87,7 +92,7 @@ public class Lab4P2VíctorRomero {
         }
     }
 
-    public static boolean Jaque(int[][] tablero, int kingX, int kingY) {
+    public static boolean Jaque(Pieza[][] tablero, int kingX, int kingY) {
         boolean move = true;
 
         for (int i = -1; i <= 1; i++) {
@@ -99,8 +104,8 @@ public class Lab4P2VíctorRomero {
                     int x = kingX + i;
                     int y = kingY + j;
                     if (x >= 0 && x < 8 && y >= 0 && y < 8) {
-                        int pieza = tablero[x][y];
-                        if (pieza == Peon || pieza == Caballo || pieza == Alfil || pieza == Torre || piece == Dama || pieza == Rey) {
+
+                        if (tablero[x][y] instanceof Peon || tablero[x][y] instanceof Caballo || tablero[x][y] instanceof Alfil || tablero[x][y] instanceof Torre || tablero[x][y] instanceof Dama || tablero[x][y] instanceof Rey) {
                             move = true;
                             return move;
 
@@ -108,8 +113,58 @@ public class Lab4P2VíctorRomero {
                     }
                 }
             }
-
         }
         return move;
     }
+
+    public static boolean isCheckmate(int X, int Y, int[][] board) {
+        // Verificar si el rey está en jaque
+        if (Jaque(board, X, Y)) {
+            return false;
+        }
+
+        // Verificar si el rey tiene algún movimiento seguro
+        if (X > 0) {
+            if (board[X - 1][Y] == 0) {
+                return false;
+            }
+        }
+        if (X < 7) {
+            if (board[X + 1][Y] == 0) {
+                return false;
+            }
+        }
+        if (Y > 0) {
+            if (board[X][Y - 1] == 0) {
+                return false;
+            }
+        }
+        if (Y < 7) {
+            if (board[X][Y + 1] == 0) {
+                return false;
+            }
+        }
+        if (X > 0 && Y > 0) {
+            if (board[X - 1][Y - 1] == 0) {
+                return false;
+            }
+        }
+        if (X > 0 && Y < 7) {
+            if (board[X - 1][Y + 1] == 0) {
+                return false;
+            }
+        }
+        if (X < 7 && Y > 0) {
+            if (board[X + 1][Y - 1] == 0) {
+                return false;
+            }
+        }
+        if (X < 7 && Y < 7) {
+            if (board[X + 1][Y + 1] == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
